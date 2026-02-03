@@ -1,0 +1,107 @@
+@use 'variables.scss' as var;
+
+/* =================================
+   NAV DESKTOP
+==================================== */
+#nav-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0 auto;
+	width: 100%;
+	max-width: var.$desktop;
+	padding: 0 var.$container-padding;
+	text-align: center;
+	position: relative;
+	z-index: 99999999;
+}
+
+.nav-links {
+	display: flex;
+	justify-content: flex-end;
+	width: auto;
+	transition: all ease 0.3s;
+	overflow: visible;
+	height: auto;
+	margin-left: 0;
+}
+
+.nav-links li {
+	text-align: center;
+	position: relative;
+}
+
+.nav-links li a {
+	font-family: 'Barlow-Bold', sans-serif;
+	font-size: min(max(1rem, 2.5vw), 24px);
+	color: var.$dark;
+	display: inline-block;
+	text-align: center;
+	border: 1px solid transparent;
+	padding: 1rem 1rem 0.75rem;
+	text-decoration: none;
+	font-weight: bold;
+	text-transform: uppercase;
+	line-height: 1;
+	min-width: 48px;
+	min-height: 48px;
+	letter-spacing: 2px;
+	background-position: center center;
+	transition: all ease 0.3s;
+	position: relative;
+	z-index: 1;
+	//border: 1px red solid;
+}
+
+@media (max-width: var.$mobile) {
+	.nav-links li a {
+		padding: 1rem 0.5rem 0.75rem;
+	}
+}
+
+@media (max-width: 500px) {
+	.nav-links {
+		margin-left: 0;
+	}
+}
+
+#project .nav-links li.home a,
+#news .nav-links li.news a,
+.nav-links li a.active,
+.nav-links li a:hover {
+	color: var.$theme-clr;
+	font-weight: bold;
+	transition: all ease 0.3s;
+}
+
+.nav-links li a:hover,
+.nav-links li a:hover.active {
+	color: var.$theme-clr !important;
+}
+
+#project .nav-links li.home a::before,
+#news .nav-links li.news a::before,
+.nav-links li a.active::before,
+.nav-links li a:hover::before {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.nav-links a.active {
+	opacity: 0;
+	animation: slideDownBounce 1s cubic-bezier(0, 0, 0.3, 1) forwards;
+	animation-delay: 0.2s;
+}
+
+@keyframes slideDownBounce {
+	0% {
+		opacity: 0;
+		filter: blur(10px);
+		transform: translateY(-10px);
+	}
+	100% {
+		opacity: 1;
+		filter: blur(0px);
+		transform: translateY(0);
+	}
+}

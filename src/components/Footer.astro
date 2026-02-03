@@ -1,0 +1,45 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1); // remove first "/"
+const currentYear = new Date().getFullYear();
+---
+
+<footer>
+	<div class="footer-cta">
+		<div class="footer-cta__content">
+			<div class="footer-cta__icon" aria-hidden="true">
+				<svg viewBox="0 0 48 48" role="img" aria-label="Brand mark">
+					<circle cx="24" cy="24" r="22" fill="#ffffff" opacity="0.18"></circle>
+					<path d="M24 10l10 18-10 10-10-10z" fill="#ffffff" opacity="0.9"></path>
+				</svg>
+			</div>
+			<div class="footer-cta__text">
+				<h3>Start your business today!</h3>
+				<p>Register your business today and take a huge step toward success.</p>
+			</div>
+			<a class="footer-cta__button" href="#">Get Started →</a>
+		</div>
+	</div>
+	<div class="container">
+		<nav>
+			<ul class="nav-links">
+				<li class="home">
+					<a role="link" aria-label="link to homepage" href="/" data-astro-reload>Work</a>
+				</li>
+				<li class="media">
+					<a href="/about/" data-astro-reload>About</a>
+				</li>
+				<li class="news">
+					<a href="/news/" data-astro-reload>News</a>
+				</li>
+			</ul>
+			<div id="copyright">
+				<p>© {currentYear} DigitalGuide.ca</p>
+			</div>
+		</nav>
+	</div>
+
+	<script src="../scripts/trig.js"></script>
+	<script src="../scripts/scripts.js"></script>
+	<script src="../scripts/lenis.js"></script>
+</footer>

@@ -1,0 +1,44 @@
+// BREAKPOINTS
+$desktop: 1500px;
+$tablet: 1024px;
+$tablet-sm: 800px;
+$mobile: 700px;
+$mobile-sm: 500px;
+
+// THEME
+$theme-clr: #ff3000;
+$dark: #383f68;
+$light: #f7f9ff;
+$bg-clr: #fff;
+
+// FONTS
+// $font-sans-serif: 'CalibriRegular', Helvetica, Arial, sans-serif;
+// $font-sans-serif-bold: 'CalibriBold', Helvetica, Arial, sans-serif;
+$font-sans-serif: 'Barlow-Regular', Helvetica, Arial, sans-serif;
+$font-sans-serif-med: 'Barlow-SemiBold', Helvetica, Arial, sans-serif;
+$font-sans-serif-bold: 'Barlow-Bold', Helvetica, Arial, sans-serif;
+$font-serif:
+	'MinionPro-Regular',
+	Times New Roman,
+	serif;
+
+// CONTAINER PADDING
+$container-padding: 1.25rem;
+$container-padding-mobile: 1.25rem;
+
+// CSS custom properties from SASS variables (must be at end after all variables are defined)
+// :root {
+// 	--theme-clr: #{$theme-clr};
+
+// 	--dark: #{$dark};
+// 	--highlight: #{$highlight};
+// 	--highlight-light: #{$highlight-light};
+// 	--container-bg-light: #{$container-bg-light};
+// 	--container-bg-dark: #{$container-bg-dark};
+// 	--project-image-border: #{$project-image-border};
+// 	--font-clr: #{$font-clr};
+// 	--font-clr-dark: #{$font-clr-dark};
+// 	--font-clr-muted: #{$font-clr-muted};
+// 	--font-clr-muted-dark: #{$font-clr-muted-dark};
+// 	--color-text-muted: #{$font-clr-muted}; /* For radix components compatibility */
+// }

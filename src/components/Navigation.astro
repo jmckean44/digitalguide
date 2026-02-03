@@ -1,0 +1,25 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1); // remove first "/"
+import { Image } from 'astro:assets';
+import logo from '../img/logo.svg';
+---
+
+<div id="nav-container">
+	<div>
+		<Image src={logo} alt="Digital Guide Logo" width="150" height="50" priority />
+	</div>
+	<nav>
+		<ul class="nav-links">
+			<li class="about">
+				<a class={currentPath ? 'active' : ''} role="link" aria-label="link to about section" href="#about" data-astro-reload>About</a>
+			</li>
+			<li class="services">
+				<a class={currentPath === 'about/' ? 'active' : ''} href="#services" role="link" aria-label="link to services section" data-astro-reload>Services</a>
+			</li>
+			<li class="contact">
+				<a class={currentPath === 'about/' ? 'active' : ''} href="#contact" role="link" aria-label="link to contact section" data-astro-reload>Contact</a>
+			</li>
+		</ul>
+	</nav>
+</div>
