@@ -1497,7 +1497,7 @@ section {
 }
 
 .pricing-section {
-	background: linear-gradient(90deg, #2d246b 60%, #fff 40%);
+	background: linear-gradient(90deg, var.$theme-clr-blue, 40%, var.$dark 100%);
 	padding: 5rem 0 4rem 0;
 }
 .pricing-content {
