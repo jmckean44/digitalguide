@@ -1,0 +1,133 @@
+---
+import '../styles/global.scss';
+import '../styles/trig.scss';
+import Footer from '../components/Footer.astro';
+import Navigation from '../components/Navigation.astro';
+
+const {
+	title = 'Digital Guide',
+	description = 'Digital Guide is a local, trusted digital document and file organization support service for individuals and small businesses',
+	lang = 'en',
+	canonical,
+	image,
+	imageAlt = '',
+	siteName = 'Digital Guide',
+	type = 'website',
+	noindex = false,
+	keywords,
+	author,
+	twitterHandle,
+	themeColor = '#383f68',
+	locale = 'en_US',
+} = Astro.props;
+
+const canonicalUrl = canonical ?? (Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astro.url);
+const robotsContent = noindex ? 'noindex, nofollow' : 'index, follow';
+const twitterCard = image ? 'summary_large_image' : 'summary';
+const scriptsUrl = new URL('../scripts/scripts.js', import.meta.url);
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Business',
+	name: 'Digital Guide',
+	jobTitle: '',
+	description: '',
+	url: 'https://digitalguide.ca/',
+	sameAs: ['', ''],
+	knowsAbout: ['', ''],
+};
+
+//import { ClientRouter } from 'astro:transitions';
+---
+
+<html lang={lang} class="light lenis">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="x-ua-compatible" content="ie=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description} />
+		{keywords && <meta name="keywords" content={keywords} />}
+		{author && <meta name="author" content={author} />}
+		<meta name="robots" content={robotsContent} />
+		<meta name="googlebot" content={robotsContent} />
+		<meta name="referrer" content="strict-origin-when-cross-origin" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="theme-color" content={themeColor} />
+		<meta name="color-scheme" content="light dark" />
+
+		<title>{title}</title>
+		<link rel="canonical" href={canonicalUrl} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+		<meta property="og:site_name" content={siteName} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content={type} />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:locale" content={locale} />
+		{image && <meta property="og:image" content={image} />}
+		{imageAlt && <meta property="og:image:alt" content={imageAlt} />}
+
+		<meta name="twitter:card" content={twitterCard} />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		{twitterHandle && <meta name="twitter:site" content={twitterHandle} />}
+		{image && <meta name="twitter:image" content={image} />}
+		{imageAlt && <meta name="twitter:image:alt" content={imageAlt} />}
+
+		<!-- FAVICONS -->
+		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<meta name="apple-mobile-web-app-title" content="Digital Guide" />
+		<link rel="manifest" href="/site.webmanifest" />
+
+		<!-- JSON-LD  -->
+		<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+		<!-- Immediate theme script to prevent FOUC -->
+		<!-- Critical inline script for theme to prevent FOUC - keep synchronous -->
+		<script is:inline>
+			(function () {
+				const html = document.documentElement;
+				const savedTheme = localStorage.getItem('theme');
+
+				if (savedTheme === 'dark') {
+					html.classList.add('dark');
+				}
+
+				// Mark theme as loaded
+				html.classList.add('theme-loaded');
+			})();
+		</script>
+
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-PNN8PZGL38"></script>
+		<script is:inline>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag('js', new Date());
+
+			gtag('config', 'G-PNN8PZGL38');
+		</script>
+
+		<!-- <ClientRouter /> -->
+	</head>
+
+	<body>
+		<header id="header" class="header">
+			<Navigation />
+		</header>
+		<div class="progress-bar" id="progress-bar"></div>
+		<main>
+			<slot />
+		</main>
+		<Footer />
+	</body>
+</html>
