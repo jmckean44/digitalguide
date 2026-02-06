@@ -14,6 +14,7 @@
 	text-align: center;
 	position: relative;
 	z-index: 99999999;
+	//border: 1px red solid;
 }
 
 .nav-links {
@@ -32,17 +33,16 @@
 }
 
 .nav-links li a {
-	font-family: 'Barlow-Bold', sans-serif;
-	font-size: min(max(1rem, 2.5vw), 24px);
+	font-family: 'Barlow-Medium', sans-serif;
+	font-size: min(max(1rem, 2.25vw), 20px);
 	color: var.$dark;
 	display: inline-block;
 	text-align: center;
 	border: 1px solid transparent;
-	padding: 1rem 1rem 0.75rem;
+	padding: 0.5rem 0.5rem;
 	text-decoration: none;
 	font-weight: bold;
 	text-transform: uppercase;
-	line-height: 1;
 	min-width: 48px;
 	min-height: 48px;
 	letter-spacing: 2px;
@@ -51,6 +51,26 @@
 	position: relative;
 	z-index: 1;
 	//border: 1px red solid;
+}
+
+.nav-links li.call {
+	width: 60px;
+}
+
+.nav-links li.call a {
+	padding: 0.25rem;
+	display: flex;
+	align-self: center;
+	justify-content: center;
+}
+
+.nav-links li.call a img {
+	max-width: 35px;
+	transition: all ease 0.3s;
+}
+
+.nav-links li.call a:hover img {
+	transform: scale(1.2);
 }
 
 @media (max-width: var.$mobile) {

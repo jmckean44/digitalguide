@@ -1,0 +1,89 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import call from '../../img/discovery-call.webp';
+import filesOne from '../../img/files-1.webp';
+
+const posts = [
+	{
+		title: 'A calmer way to organize digital files',
+		excerpt: 'Learn a simple system for naming, sorting, and storing files so they stay easy to find across devices and cloud accounts.',
+		date: 'Feb 4, 2026',
+		readTime: '6 min read',
+		tag: 'Organization',
+		image: call,
+		href: '/blog/calm-file-organization',
+	},
+	{
+		title: 'How to reduce duplicate photos without stress',
+		excerpt: 'A step-by-step approach to consolidating photos from phones, computers, and cloud services without losing what matters.',
+		date: 'Feb 2, 2026',
+		readTime: '5 min read',
+		tag: 'Photos',
+		image: filesOne,
+		href: '/blog/reduce-duplicate-photos',
+	},
+	{
+		title: 'Create a secure, easy-to-manage account list',
+		excerpt: 'Build a clean, safe inventory of your accounts and recovery info so everything stays accessible and protected.',
+		date: 'Jan 29, 2026',
+		readTime: '7 min read',
+		tag: 'Security',
+		image: call,
+		href: '/blog/account-inventory',
+	},
+	{
+		title: 'Cloud storage without confusion',
+		excerpt: 'Compare common platforms and learn a simple layout that keeps shared folders, backups, and archives organized.',
+		date: 'Jan 24, 2026',
+		readTime: '4 min read',
+		tag: 'Cloud',
+		image: filesOne,
+		href: '/blog/cloud-storage-layout',
+	},
+];
+---
+
+<Layout pageTitle="Blog | Digital Guide" pageSiteTitles="">
+	<section id="blog-hero">
+		<div class="container top btm">
+			<div class="flex padding-x align-middle">
+				<div class="cell small-18 medium-10">
+					<p class="eyebrow">BLOG</p>
+					<h1>Practical guidance for a calmer digital life.</h1>
+					<p>Short, straightforward articles that explain how to organize files, tidy photos, and manage accounts without technical jargon.</p>
+				</div>
+				<div class="cell small-18 medium-8">
+					<Image src={call} class="bdr-radius" alt="Digital Guide blog" />
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="blog-list">
+		<div class="container btm">
+			<div class="flex padding-x">
+				{
+					posts.map((post) => (
+						<article class="blog-card cell small-18 medium-9" aria-label={post.title}>
+							<div class="blog-card__image">
+								<Image src={post.image} alt={post.title} />
+							</div>
+							<div class="blog-card__meta">
+								<span class="blog-card__tag">{post.tag}</span>
+								<span>
+									{post.date} • {post.readTime}
+								</span>
+							</div>
+							<h3>{post.title}</h3>
+							<p>{post.excerpt}</p>
+							<a class="btn btn-clear blog-card__link" href={post.href}>
+								Read article
+							</a>
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</section>
+</Layout>
