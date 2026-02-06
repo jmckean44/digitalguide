@@ -128,9 +128,12 @@
 	}
 }
 
-.swiper-slide h3,
-.swiper-slide ul {
+.swiper-slide h3 {
 	color: var.$dark;
+}
+
+.swiper-slide ul {
+	color: var.$body-txt;
 }
 
 .swiper-slide h4,
@@ -139,36 +142,26 @@
 }
 
 #slide1 {
-	background:
-		linear-gradient(180deg, #ffffff 0%, #f3f7f7 100%),
-		url('../img/icon-network.svg') no-repeat right 25px top 25px;
+	background: linear-gradient(180deg, #ffffff 0%, #f3f7f7 100%);
 	background-size: 100px;
 }
 
 #slide2 {
-	background:
-		linear-gradient(180deg, #ffffff 0%, #f3f7f7 100%),
-		url('../img/service-network.webp') no-repeat right 25px top 25px;
+	background: linear-gradient(180deg, #ffffff 0%, #f3f7f7 100%);
 	background-size: 300px;
 }
 
 #slide3 {
-	background:
-		linear-gradient(180deg, #ffffff 0%, #f3f7f7 100%),
-		url('../img/icon-device.svg') no-repeat right 25px top 25px;
+	background: linear-gradient(180deg, #ffffff 0%, #f3f7f7 100%);
 	background-size: 150px;
 }
 
 #slide4 {
-	background:
-		linear-gradient(180deg, #ffffff 0%, #f3f7f7 100%),
-		url('../img/icon-navigation.svg') no-repeat right 25px top 25px;
+	background: linear-gradient(180deg, #ffffff 0%, #f3f7f7 100%);
 	background-size: 150px;
 }
 
 #slide5 {
-	background:
-		linear-gradient(180deg, #ffffff 0%, #f3f7f7 100%),
-		url('../img/icon-family.svg') no-repeat right 25px top 25px;
+	background: linear-gradient(180deg, #ffffff 0%, #f3f7f7 100%);
 	background-size: 150px;
 }
